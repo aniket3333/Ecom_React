@@ -8,12 +8,45 @@ import { AiFillStar } from "react-icons/ai";
 import {LiaObjectGroupSolid} from "react-icons/lia";
 import {CgSmartHomeRefrigerator} from 'react-icons/cg';
 import {MdOutlineArrowForwardIos} from 'react-icons/md';
+import {FcCalendar} from 'react-icons/fc';
+import {BiStopwatch} from 'react-icons/bi';
 import Button from 'react-bootstrap/Button';
 const Products = () => {
+
+
   const getTime = () => {
     const date = new Date();
     return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
   };
+
+  const getAddedTime = () => {
+    const date = new Date();
+    date.setHours(date.getHours() + 2); 
+    const options = { hour: "2-digit", minute: "2-digit" };
+    return  date.toLocaleTimeString([], options);
+  }
+    
+  
+
+
+  const formatDate = () => {
+    const date = new Date();
+    
+
+  const options = { day: 'numeric', month: 'long', year: 'numeric' };
+  const formattedDate = date.toLocaleDateString('en-US', options);
+  
+  const [month, day, year] = formattedDate.split(' ');
+   
+  return `${day} ${month} ${year}`;
+  };
+  
+
+
+
+
+
+
 
   return (
     <>
@@ -42,8 +75,65 @@ const Products = () => {
             
               
             </div>
-            <div className="nav m-0 p-0">
-            </div>
+
+
+
+
+
+
+
+
+
+
+
+            <div className="col text-start mt-2">
+  <div className="cart mb-3">
+    
+
+
+
+
+
+  <div className="show-time" style={{ display: 'flex', flexDirection: 'row' }}>
+      
+  <span className=" pt-2" style={{fontSize:'6px',fontWeight: 'bold', fontStyle: 'Open Sans'}}><FcCalendar/> {formatDate()}</span>
+    
+     <span className="vertical-line"></span>
+ 
+     <span className=" pt-2" style={{fontSize:'6px',fontWeight: 'bold', fontStyle: 'Open Sans'}}><BiStopwatch/> {getTime()} - {getAddedTime()}</span>
+  
+
+  
+  
+
+    </div>
+
+
+
+
+
+
+
+
+  
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <div className="p-3">
@@ -53,23 +143,49 @@ const Products = () => {
 <span className="ani py-1 px-3  text-muted">Indian</span>
 
 
-<h6 className="pt-3 pb-2">Popular Dishes</h6>
-<div className="circle1 me-1">
-  <img src="https://i.ytimg.com/vi/d0hlJ4pvyj4/maxresdefault.jpg" alt="Circle" className="circle-image" />
-  <span className="circle-text">Biryani</span>
+{/* <h6 className="pt-3 pb-2">Popular Dishes</h6> */}
+<div className="pt-3 pb-2">
+<span style={{fontSize:'13px'}}>Popular Dishes</span>
 </div>
-<div className="circle me-1">
-  <img src="https://i.ytimg.com/vi/d0hlJ4pvyj4/maxresdefault.jpg" alt="Circle" className="circle-image" />
-  <span className="circle-text">Biryani</span>
+<div className="biryani1 me-3">
+  <img
+     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNO97FbHTCFtvxLuqzsHpJaUQyTFJjKNWyDw&usqp=CAU"
+      alt="biryani"
+      style={{ width: '100%', height: '100%',borderRadius: '50%' }}
+    />
+     <span className="circle-text">Biryani</span>
+  
 </div>
-<div className="circle me-1">
-  <img src="https://i.ytimg.com/vi/d0hlJ4pvyj4/maxresdefault.jpg" alt="Circle" className="circle-image" />
-  <span className="circle-text">Biryani</span>
+<div className="biryani me-3">
+  <img
+     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNO97FbHTCFtvxLuqzsHpJaUQyTFJjKNWyDw&usqp=CAU"
+      alt="biryani"
+      style={{ width: '100%', height: '100%',borderRadius: '50%' }}
+    />
+     <span className="circle-text">Biryani</span>
+  
 </div>
-{/* <div className="circle">
-  <img src="https://i.ytimg.com/vi/d0hlJ4pvyj4/maxresdefault.jpg" alt="Circle" className="circle-image" />
-  <span className="circle-text">Biryani</span>
-</div> */}
+<div className="biryani me-3">
+  <img
+     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNO97FbHTCFtvxLuqzsHpJaUQyTFJjKNWyDw&usqp=CAU"
+      alt="biryani"
+      style={{ width: '100%', height: '100%',borderRadius: '50%' }}
+    />
+     <span className="circle-text">Biryani</span>
+  
+</div>
+<div className="biryani">
+  <img
+     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNO97FbHTCFtvxLuqzsHpJaUQyTFJjKNWyDw&usqp=CAU"
+      alt="biryani"
+      style={{ width: '100%', height: '100%',borderRadius: '50%' }}
+    />
+     <span className="circle-text">Biryani</span>
+  
+</div>
+
+
+
 <hr/>
 
 <div>
@@ -84,7 +200,7 @@ const Products = () => {
               </div>
 
 </div>
-<div className="row">
+<div className="row mt-3">
 
 
   <div className="col">
@@ -106,7 +222,7 @@ const Products = () => {
 
       <div style={{ display: 'flex', flexDirection: 'column' }} className="px-2 py-1">
       <span className="ingredients">Ingredients</span>
-      <a href="#" style={{ fontSize: '7px' ,color:'#FF8800'}}>View list <MdOutlineArrowForwardIos/></a>
+      <a href="#" style={{ fontSize: '7px' ,color:'#FF8800', textDecoration: 'none' }}>View list <MdOutlineArrowForwardIos/></a>
       </div>
   
 
