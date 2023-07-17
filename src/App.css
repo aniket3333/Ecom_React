@@ -90,6 +90,21 @@ h1 {
   
 }
 
+.cuisines-container {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.cuisines-scroll {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.ani {
+  white-space: nowrap;
+}
+
+
 
 .circle-text {
   position: absolute;
