@@ -39,7 +39,7 @@ const Products = () => {
       const data = await response.json();
       const popularDish = data.popularDishes;
       const dis = data.dishes;
-      debugger;
+      
       setBiryaniData(popularDish);
       setdish(dis);
     } catch (error) {
