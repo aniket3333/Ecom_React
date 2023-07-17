@@ -16,7 +16,7 @@ const Products = () => {
   const [biryaniData, setBiryaniData] = useState([]);
   const [dish, setdish] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState('');
-  const [countryList] = useState(['idli', 'dosa', 'wadapaw', 'pakoda']);
+  const [countryList] = useState(['USA', 'CALIFORNIYA', 'JAPAN', 'CANADA']);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleCountrySelect = (country) => {

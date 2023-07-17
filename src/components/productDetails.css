@@ -1,0 +1,29 @@
+.rating {
+    display: inline-block;
+    background-color: green;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 4px;
+  }
+  .small-text-rate{
+  font-size:6px;
+}
+
+.left-content {
+    float: left; 
+    font-size: 9px;
+    color: #6c757d
+  }
+
+  .right-content {
+    float: right; 
+    font-size: 9px;
+    color: #6c757d
+  }
+
+  .appliances{
+    height: 90px;
+    width: 70px;
+    background-color: grey;
+  }
+
