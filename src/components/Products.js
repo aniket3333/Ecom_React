@@ -222,8 +222,8 @@ const Products = () => {
     <div className="col-8">
       <div className="row">
         <div className="col">
-          <span className="small-text me-2">{item.name}</span>
-          <span className="group me-2">
+          <span className="small-text me-1">{item.name}</span>
+          <span className="group me-1">
             <LiaObjectGroupSolid />
           </span>
           <span className="rating small-text-rate">
@@ -268,7 +268,7 @@ const Products = () => {
       </div>
     </div>
 
-    <div className="col-4 text-end mt-2">
+    <div className="col-4 text-end">
       <div className="cart">
         <img
           src={item.image}
