@@ -4,8 +4,9 @@ import { AiOutlineWifi } from "react-icons/ai";
 import { FaBatteryQuarter } from "react-icons/fa";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { TiArrowSortedDown } from "react-icons/ti";
-import { CgSmartHomeRefrigerator } from "react-icons/cg";
 import { AiFillStar } from "react-icons/ai";
+import { Link } from "react-router-dom";
+
 import { FiClock } from "react-icons/fi";
 
 import "./productDetails.css";
@@ -86,8 +87,23 @@ const ProductDetails = () => {
             </div>
             <div className="row p-2">
               <span className="p-1 pr-2">
-                <MdKeyboardArrowLeft />
-              </span>
+               
+             
+
+
+
+              <Link
+                                  to="/"
+                                  style={{
+                                   
+                                    color: "black",
+                                    textDecoration: "none",
+                                  }}
+                                >
+                                
+                                  <MdKeyboardArrowLeft />
+                                </Link>
+                                </span>
             </div>
             <div className="row p-2">
               <div className="col">
