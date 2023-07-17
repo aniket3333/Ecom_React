@@ -12,8 +12,92 @@ import { FcCalendar } from "react-icons/fc";
 import { BiStopwatch } from "react-icons/bi";
 import Button from "react-bootstrap/Button";
 const Products = () => {
+  const cuisines = [
+    "Indian",
+    "Indian",
+    "Indian",
+    "Indian",
+    "Indian",
+    "Indian",
+    "Indian",
+    "Indian",
+    "Indian",
+    "Indian",
+    "Indian",
+    "Indian",
+    "Indian",
+    "Indian",
+    "Indian",
+    "Indian",
+    "Indian",
+    "Indian",
+    "Indian",
+    "Indian",
+    "Indian",
+  ];
+  const biryaniData = [
+    {
+      id: 1,
+      imgUrl:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNO97FbHTCFtvxLuqzsHpJaUQyTFJjKNWyDw&usqp=CAU",
+      text: "Biryani",
+    },
+    {
+      id: 2,
+      imgUrl:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNO97FbHTCFtvxLuqzsHpJaUQyTFJjKNWyDw&usqp=CAU",
+      text: "Biryani",
+    },
+    {
+      id: 3,
+      imgUrl:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNO97FbHTCFtvxLuqzsHpJaUQyTFJjKNWyDw&usqp=CAU",
+      text: "Biryani",
+    },
+    {
+      id: 4,
+      imgUrl:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNO97FbHTCFtvxLuqzsHpJaUQyTFJjKNWyDw&usqp=CAU",
+      text: "Biryani",
+    },
+    {
+      id: 5,
+      imgUrl:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNO97FbHTCFtvxLuqzsHpJaUQyTFJjKNWyDw&usqp=CAU",
+      text: "Biryani",
+    },
+    {
+      id: 6,
+      imgUrl:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNO97FbHTCFtvxLuqzsHpJaUQyTFJjKNWyDw&usqp=CAU",
+      text: "Biryani",
+    },
 
-  const cuisines = ["Indian", "Indian", "Indian","Indian", "Indian", "Indian","Indian", "Indian", "Indian","Indian","Indian", "Indian", "Indian","Indian","Indian", "Indian", "Indian","Indian","Indian", "Indian", "Indian"];
+    {
+      id: 7,
+      imgUrl:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNO97FbHTCFtvxLuqzsHpJaUQyTFJjKNWyDw&usqp=CAU",
+      text: "Biryani",
+    },
+    {
+      id: 8,
+      imgUrl:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNO97FbHTCFtvxLuqzsHpJaUQyTFJjKNWyDw&usqp=CAU",
+      text: "Biryani",
+    },
+    {
+      id: 9,
+      imgUrl:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNO97FbHTCFtvxLuqzsHpJaUQyTFJjKNWyDw&usqp=CAU",
+      text: "Biryani",
+    },
+    {
+      id: 10,
+      imgUrl:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNO97FbHTCFtvxLuqzsHpJaUQyTFJjKNWyDw&usqp=CAU",
+      text: "Biryani",
+    },
+  ];
 
   const getTime = () => {
     const date = new Date();
@@ -26,7 +110,7 @@ const Products = () => {
     const options = { hour: "2-digit", minute: "2-digit" };
     return date.toLocaleTimeString([], options);
   };
-  
+
   const formatDate = () => {
     const date = new Date();
 
@@ -103,22 +187,25 @@ const Products = () => {
             </div>
 
             <div className="p-3 ">
-            <div className="cuisines-container">
-      <div className="cuisines-scroll">
-        {cuisines.map((cuisine, index) => (
-          <span key={index} className="ani py-1 px-3 text-muted me-2">
-            {cuisine}
-          </span>
-        ))}
-      </div>
-    </div>
+              <div className="cuisines-container">
+                <div className="cuisines-scroll">
+                  <span className="ani py-1 px-3  cust me-2">Italian</span>
+                  {cuisines.map((cuisine, index) => (
+                    <span key={index} className="ani py-1 px-3 text-muted me-2">
+                      {cuisine}
+                    </span>
+                  ))}
+                </div>
+              </div>
 
-
-              {/* <h6 className="pt-3 pb-2">Popular Dishes</h6> */}
               <div className="pt-3 pb-2">
                 <span style={{ fontSize: "13px" }}>Popular Dishes</span>
               </div>
-              <div className="biryani1 me-3">
+
+              
+
+              <div className="cuisines-container">
+              <div className="biryani_noborder  me-3">
                 <img
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNO97FbHTCFtvxLuqzsHpJaUQyTFJjKNWyDw&usqp=CAU"
                   alt="biryani"
@@ -126,29 +213,20 @@ const Products = () => {
                 />
                 <span className="circle-text">Biryani</span>
               </div>
-              <div className="biryani me-3">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNO97FbHTCFtvxLuqzsHpJaUQyTFJjKNWyDw&usqp=CAU"
-                  alt="biryani"
-                  style={{ width: "100%", height: "100%", borderRadius: "50%" }}
-                />
-                <span className="circle-text">Biryani</span>
-              </div>
-              <div className="biryani me-3">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNO97FbHTCFtvxLuqzsHpJaUQyTFJjKNWyDw&usqp=CAU"
-                  alt="biryani"
-                  style={{ width: "100%", height: "100%", borderRadius: "50%" }}
-                />
-                <span className="circle-text">Biryani</span>
-              </div>
-              <div className="biryani">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNO97FbHTCFtvxLuqzsHpJaUQyTFJjKNWyDw&usqp=CAU"
-                  alt="biryani"
-                  style={{ width: "100%", height: "100%", borderRadius: "50%" }}
-                />
-                <span className="circle-text">Biryani</span>
+                {biryaniData.map((item) => (
+                  <div className="biryani me-3" key={item.id}>
+                    <img
+                      src={item.imgUrl}
+                      alt="biryani"
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        borderRadius: "50%",
+                      }}
+                    />
+                    <span className="circle-text">{item.text}</span>
+                  </div>
+                ))}
               </div>
 
               <hr />
