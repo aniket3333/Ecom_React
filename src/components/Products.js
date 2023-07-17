@@ -1,4 +1,5 @@
-import React from "react";
+
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AiOutlineWifi } from "react-icons/ai";
 import { FaBatteryQuarter } from "react-icons/fa";
@@ -13,6 +14,27 @@ import { FcCalendar } from "react-icons/fc";
 import { BiStopwatch } from "react-icons/bi";
 import Button from "react-bootstrap/Button";
 const Products = () => {
+  const [biryaniData, setBiryaniData] = useState([]);
+  const [dish, setdish] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch('https://8b648f3c-b624-4ceb-9e7b-8028b7df0ad0.mock.pstmn.io/dishes/v1/');
+      const data = await response.json();
+      const popularDish = data.popularDishes;
+      const dis = data.dishes;
+      debugger
+      setBiryaniData(popularDish);
+      setdish(dis);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
   const cuisines = [
     "Indian",
     "Indian",
@@ -36,70 +58,8 @@ const Products = () => {
     "Indian",
     "Indian",
   ];
-  const biryaniData = [
-    {
-      id: 1,
-      imgUrl:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNO97FbHTCFtvxLuqzsHpJaUQyTFJjKNWyDw&usqp=CAU",
-      text: "Biryani",
-    },
-    {
-      id: 2,
-      imgUrl:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNO97FbHTCFtvxLuqzsHpJaUQyTFJjKNWyDw&usqp=CAU",
-      text: "Biryani",
-    },
-    {
-      id: 3,
-      imgUrl:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNO97FbHTCFtvxLuqzsHpJaUQyTFJjKNWyDw&usqp=CAU",
-      text: "Biryani",
-    },
-    {
-      id: 4,
-      imgUrl:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNO97FbHTCFtvxLuqzsHpJaUQyTFJjKNWyDw&usqp=CAU",
-      text: "Biryani",
-    },
-    {
-      id: 5,
-      imgUrl:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNO97FbHTCFtvxLuqzsHpJaUQyTFJjKNWyDw&usqp=CAU",
-      text: "Biryani",
-    },
-    {
-      id: 6,
-      imgUrl:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNO97FbHTCFtvxLuqzsHpJaUQyTFJjKNWyDw&usqp=CAU",
-      text: "Biryani",
-    },
-
-    {
-      id: 7,
-      imgUrl:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNO97FbHTCFtvxLuqzsHpJaUQyTFJjKNWyDw&usqp=CAU",
-      text: "Biryani",
-    },
-    {
-      id: 8,
-      imgUrl:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNO97FbHTCFtvxLuqzsHpJaUQyTFJjKNWyDw&usqp=CAU",
-      text: "Biryani",
-    },
-    {
-      id: 9,
-      imgUrl:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNO97FbHTCFtvxLuqzsHpJaUQyTFJjKNWyDw&usqp=CAU",
-      text: "Biryani",
-    },
-    {
-      id: 10,
-      imgUrl:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNO97FbHTCFtvxLuqzsHpJaUQyTFJjKNWyDw&usqp=CAU",
-      text: "Biryani",
-    },
-  ];
-
+  
+  
   const getTime = () => {
     const date = new Date();
     return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
@@ -188,6 +148,9 @@ const Products = () => {
             </div>
 
             <div className="p-3 ">
+
+
+
               <div className="cuisines-container">
                 <div className="cuisines-scroll">
                   <span className="ani py-1 px-3  cust me-2">Italian</span>
@@ -215,9 +178,9 @@ const Products = () => {
                 <span className="circle-text">Biryani</span>
               </div>
                 {biryaniData.map((item) => (
-                  <div className="biryani me-3" key={item.id}>
+                <div className="biryani me-3" key={item.id}>
                     <img
-                      src={item.imgUrl}
+                      src={item.image}
                       alt="biryani"
                       style={{
                         width: "100%",
@@ -225,7 +188,7 @@ const Products = () => {
                         borderRadius: "50%",
                       }}
                     />
-                    <span className="circle-text">{item.text}</span>
+                    <span className="circle-text">{item.name}</span>
                   </div>
                 ))}
               </div>
@@ -245,84 +208,109 @@ const Products = () => {
                     </Button>
                   </div>
                 </div>
+
+
+
+
+
                 <div className="row mt-3">
-                  <div className="col">
-                    <span className=" small-text me-2">Masala Muglai</span>
-                    <span className="group me-2">
-                      <LiaObjectGroupSolid />
-                    </span>
-                    <span className="rating small-text-rate ">
-                      4.2
-                      <AiFillStar />
-                    </span>
 
-                    <div style={{ display: "flex", flexDirection: "row" }}>
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "center",
-                        }}
-                      >
-                        <span className="text-muted">
-                          <CgSmartHomeRefrigerator />
-                        </span>
-                        <span className="refri text-muted  me-1">
-                          Refrigerator
-                        </span>
-                      </div>
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "center",
-                        }}
-                      >
-                        <span className="text-muted">
-                          <CgSmartHomeRefrigerator />
-                        </span>
-                        <span className="refri text-muted ">Refrigerator</span>
-                      </div>
-                      <span className="vertical-line"></span>
 
-                      <div
-                        style={{ display: "flex", flexDirection: "column" }}
-                        className="px-2 py-1"
-                      >
-                        <span className="ingredients">Ingredients</span>
-                        <Link
-        to="/another-component"
-        style={{
-          fontSize: '7px',
-          color: '#FF8800',
-          textDecoration: 'none',
-        }}
-      >
-        View list
-        <MdOutlineArrowForwardIos />
-      </Link>
-                      </div>
-                    </div>
-                  </div>
+                
+                {dish.map((item) => (
+  <div key={item.id} className="row">
+    <div className="col-8">
+      <div className="row">
+        <div className="col">
+          <span className="small-text me-2">{item.name}</span>
+          <span className="group me-2">
+            <LiaObjectGroupSolid />
+          </span>
+          <span className="rating small-text-rate">
+            {item.rating}
+            <AiFillStar />
+          </span>
+        </div>
+      </div>
 
-                  <div className="col text-start mt-2">
-                    <div className="cart">
-                      <img
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8jYqEe4D78PaGHhnastN3L-GYKrIEc_QNTg&usqp=CAU"
-                        alt="Cart"
-                        style={{ width: "100%", height: "100%" }}
-                      />
-                      <button className="add-to-cart-btn">Add </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <hr />
+      <div className="row">
+        <div className="col">
+          <div className="d-flex flex-row">
+            <div className="d-flex flex-column align-items-center">
+              <span className="text-muted">
+                <CgSmartHomeRefrigerator />
+              </span>
+              <span className="refri text-muted me-1">{item.equipments[0]}</span>
+            </div>
+            <div className="d-flex flex-column align-items-center">
+              <span className="text-muted">
+                <CgSmartHomeRefrigerator />
+              </span>
+              <span className="refri text-muted">Refrigerator</span>
+            </div>
+            <span className="vertical-line"></span>
+            <div className="px-2 py-1 d-flex flex-column">
+              <span className="ingredients">Ingredients</span>
+              <Link
+                to="/another-component"
+                style={{
+                  fontSize: '7px',
+                  color: '#FF8800',
+                  textDecoration: 'none',
+                }}
+              >
+                View list
+                <MdOutlineArrowForwardIos />
+              </Link>
             </div>
           </div>
         </div>
       </div>
+    </div>
+
+    <div className="col-4 text-end mt-2">
+      <div className="cart">
+        <img
+          src={item.image}
+          alt="Cart"
+          style={{ width: '100%', height: '100%' }}
+        />
+        <button className="add-to-cart-btn">Add</button>
+      </div>
+    </div>
+
+    <hr className="mt-4" />
+  </div>
+))}
+
+    </div>
+
+
+
+
+
+
+
+
+                  
+                </div>
+
+
+               
+
+
+
+
+              </div>
+
+           
+
+
+
+            </div>
+          </div>
+        </div>
+      
     </>
   );
 };
