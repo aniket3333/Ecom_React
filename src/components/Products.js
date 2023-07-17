@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import { AiOutlineWifi } from "react-icons/ai";
 import { FaBatteryQuarter } from "react-icons/fa";
 import { MdCellTower } from "react-icons/md";
@@ -289,16 +290,17 @@ const Products = () => {
                         className="px-2 py-1"
                       >
                         <span className="ingredients">Ingredients</span>
-                        <a
-                          href="#"
-                          style={{
-                            fontSize: "7px",
-                            color: "#FF8800",
-                            textDecoration: "none",
-                          }}
-                        >
-                          View list <MdOutlineArrowForwardIos />
-                        </a>
+                        <Link
+        to="/another-component"
+        style={{
+          fontSize: '7px',
+          color: '#FF8800',
+          textDecoration: 'none',
+        }}
+      >
+        View list
+        <MdOutlineArrowForwardIos />
+      </Link>
                       </div>
                     </div>
                   </div>
